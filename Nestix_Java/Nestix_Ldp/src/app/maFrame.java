@@ -779,36 +779,46 @@ public class maFrame extends javax.swing.JFrame {
         tf_critere_film_1.setEnabled(false);
 
         tf_critere_film_2.setPreferredSize(new java.awt.Dimension(120, 26));
+        tf_critere_film_2.setEnabled(false);
 
         tf_critere_film_3.setMinimumSize(new java.awt.Dimension(50, 26));
         tf_critere_film_3.setPreferredSize(new java.awt.Dimension(120, 26));
+        tf_critere_film_3.setEnabled(false);
 
         tf_critere_film_4.setPreferredSize(new java.awt.Dimension(120, 26));
+        tf_critere_film_4.setEnabled(false);
 
-        //cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
-        //cb_critere_film_1.setMinimumSize(new java.awt.Dimension(250, 27));
 
-        cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
+
+        cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Nom Acteur", "Prénom Acteur", "Visa" }));
         cb_critere_film_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_critere_film_1ActionPerformed(evt);
             }
         });
 
-        cb_critere_film_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
+        cb_critere_film_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Nom Acteur", "Prénom Acteur", "Visa" }));
         cb_critere_film_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_critere_film_2ActionPerformed(evt);
             }
         });
 
-        cb_critere_film_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
-        cb_critere_film_3.setSize(new java.awt.Dimension(96, 27));
+        cb_critere_film_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Nom Acteur", "Prénom Acteur", "Visa" }));
+        cb_critere_film_3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_critere_film_3ActionPerformed(evt);
+            }
+        });
 
 
 
-        cb_critere_film_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
-        cb_critere_film_4.setSize(new java.awt.Dimension(96, 27));
+        cb_critere_film_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Nom Acteur", "Prénom Acteur", "Visa" }));
+        cb_critere_film_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_critere_film_4ActionPerformed(evt);
+            }
+        });
 
         label_ajout_critere_film.setText("2 critères restants");
         label_ajout_critere_film.setToolTipText("");
@@ -3824,10 +3834,25 @@ public class maFrame extends javax.swing.JFrame {
         if (critere_film_1 == "Choisissez")
             tf_critere_film_1.setEnabled(false);
         else tf_critere_film_1.setEnabled(true);
-
-
-
     }
+    private void cb_critere_film_2ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        String critere_film_2 = cb_critere_film_2.getSelectedItem().toString();                                              
+        if (critere_film_2 == "Choisissez")
+            tf_critere_film_2.setEnabled(false);
+        else tf_critere_film_2.setEnabled(true);
+    } 
+    private void cb_critere_film_3ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        String critere_film_3 = cb_critere_film_3.getSelectedItem().toString();                                              
+        if (critere_film_3 == "Choisissez")
+            tf_critere_film_3.setEnabled(false);
+        else tf_critere_film_3.setEnabled(true);
+    } 
+    private void cb_critere_film_4ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        String critere_film_4 = cb_critere_film_4.getSelectedItem().toString();                                              
+        if (critere_film_4 == "Choisissez")
+            tf_critere_film_4.setEnabled(false);
+        else tf_critere_film_4.setEnabled(true);
+    } 
 
     private void b_recherche_filmActionPerformed(java.awt.event.ActionEvent evt) {   
         String critere_bdd_1 = "";                                              
@@ -3839,9 +3864,7 @@ public class maFrame extends javax.swing.JFrame {
         System.out.println(requette);
     }  
 
-    private void cb_critere_film_2ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
-        // TODO add your handling code here:
-    }                                                 
+                                                
 
     private void b_creerActionPerformed(java.awt.event.ActionEvent evt) {                                        
         // TODO add your handling code here:
