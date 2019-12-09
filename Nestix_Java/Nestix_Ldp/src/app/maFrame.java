@@ -788,7 +788,7 @@ public class maFrame extends javax.swing.JFrame {
         //cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
         //cb_critere_film_1.setMinimumSize(new java.awt.Dimension(250, 27));
 
-        cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
+        cb_critere_film_1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choisissez", "Nom Réalisateur", "Prénom Réalisateur", "Année", "Acteur", "Budget", "Scénariste" }));
         cb_critere_film_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cb_critere_film_1ActionPerformed(evt);
@@ -3817,24 +3817,27 @@ public class maFrame extends javax.swing.JFrame {
        // TODO add your handling code here:
     }                                                   
 
-    private void b_recherche_filmActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // TODO add your handling code here:
-    }                                                
+                                              
 
     private void cb_critere_film_1ActionPerformed(java.awt.event.ActionEvent evt) {  
-        var critere_film_1 = cb_critere_film_1.getSelectedItem();    
-        var critere_bdd_1 = "";                                            
+        String critere_film_1 = cb_critere_film_1.getSelectedItem().toString();                                              
         if (critere_film_1 == "Choisissez")
             tf_critere_film_1.setEnabled(false);
         else tf_critere_film_1.setEnabled(true);
 
-        if (critere_film_1 == "Réalisateur"){
-            critere_bdd_1 = "id_artist";
-        }
-        System.out.println(critere_bdd_1);
 
 
     }
+
+    private void b_recherche_filmActionPerformed(java.awt.event.ActionEvent evt) {   
+        String critere_bdd_1 = "";                                              
+        System.out.println(tf_critere_film_1.getText()); 
+        if (cb_critere_film_1.getSelectedItem() == "Nom Réalisateur")
+            critere_bdd_1 = "human_lastname"; 
+
+        String requette = "SELECT media_title FROM media WHERE media_id IN (SELECT media.media_id FROM media JOIN take_part_in ON media.media_id=take_part_in.media_id WHERE human_id=(SELECT DISTINCT human.human_id FROM human JOIN take_part_in ON human.human_id=take_part_in.human_id WHERE "+critere_bdd_1+"= \""+tf_critere_film_1.getText()+"\") AND work_id= (SELECT work_id FROM work WHERE work_name=\"Réalisateur\"))";
+        System.out.println(requette);
+    }  
 
     private void cb_critere_film_2ActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
