@@ -14,7 +14,7 @@ public class C_LIVRE extends C_MEDIA{
 
     @Override
     public String toString() {
-        return "C_LIVRE{" + "ISBN=" + this.getISBN() + ", annee=" + this.getAnnee() + ", tome=" + this.getTome() + ", annee_award=" + this.getAnneeAward() + ", synop=" + this.getSynop() + ", saga=" + this.getSaga() + ", editeur=" + this.getEditeur() + ", mes_ecrivains=" + mes_ecrivains.get(0).getNom() + ", mes_tags=" + mes_tags.get(0).getNom() + ", mes_genres=" + mes_genres.get(0).getNom() + ", ma_ceremonie=" + ma_ceremonie.getNom() + ", mon_award=" + mon_award.getNom() + '}';
+        return "C_LIVRE{" + "ISBN=" + this.getISBN() + ", annee=" + this.getAnnee() + ", tome=" + this.getTome() + ", annee_award=" + this.getAnneeAward() + ", synop=" + this.getSynop() + ", saga=" + this.getSaga() + ", editeur=" + this.getEditeur() + ", mes_ecrivains=" + mes_ecrivains.get(0).getNickname() + ", mes_tags=" + mes_tags.get(0).getNom() + ", mes_genres=" + mes_genres.get(0).getNom() + ", ma_ceremonie=" + ma_ceremonie.getNom() + ", mon_award=" + mon_award.getNom() + '}';
     }
 
     public int getISBN() {
@@ -116,14 +116,14 @@ public class C_LIVRE extends C_MEDIA{
     public void addEcrivain(String nom){
     if (nom.equals("")){
         C_ARTISTE mon_ecrivain = new C_ARTISTE();
-        mon_ecrivain.setNom("NULL");
+        mon_ecrivain.setNickname("");
         mon_ecrivain.setId(0);
         this.mes_ecrivains.add(mon_ecrivain);
     }
     else{
         C_ARTISTE mon_ecrivain = new C_ARTISTE();
-        mon_ecrivain.setNom(nom);
-        mon_ecrivain.recupId(nom);
+        mon_ecrivain.setNickname(nom);
+        mon_ecrivain.recupId();
         this.mes_ecrivains.add(mon_ecrivain);}
     }
 
@@ -174,8 +174,8 @@ public class C_LIVRE extends C_MEDIA{
         String requete_creation_ecrivain = "";
 
         for (int i = 0 ; i < mes_ecrivains.size() ; i++){
-            if (!mes_ecrivains.get(i).getNom().equals("")){
-                mes_ecrivains.get(i).recupId(mes_ecrivains.get(i).getNom());
+            if (!mes_ecrivains.get(i).getNickname().equals("")){
+                mes_ecrivains.get(i).recupId();
                 if(!verifNullInt(mes_ecrivains.get(i).getId()).equals("NULL")){
                     requete_creation_ecrivain = "INSERT INTO take_part_in (media_id, work_id, human_id) VALUES ("+this.id+","+ecrivain.getId()+","+verifNullInt(mes_ecrivains.get(i).getId())+")";
                 System.out.println(requete_creation_ecrivain);

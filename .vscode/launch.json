@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-C_OPTIONPANE<Nestix_Ldp>",
+            "request": "launch",
+            "mainClass": "app.C_OPTIONPANE",
+            "projectName": "Nestix_Ldp"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-maFrame<Nestix_Ldp>",
+            "request": "launch",
+            "mainClass": "app.maFrame",
+            "projectName": "Nestix_Ldp"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TimezoneDump<Nestix_Ldp>",
+            "request": "launch",
+            "mainClass": "com.mysql.cj.jdbc.admin.TimezoneDump",
+            "projectName": "Nestix_Ldp"
+        }
+    ]
+}

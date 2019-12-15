@@ -72,7 +72,7 @@ public class C_FILM extends C_MEDIA{
 
     public void addActeur(String nom){
         C_ARTISTE mon_acteur = new C_ARTISTE();
-        mon_acteur.setNom(nom);
+        mon_acteur.setNickname(nom);
         mon_acteur.getId();
         this.mes_acteurs.add(mon_acteur);
     }
@@ -84,28 +84,28 @@ public class C_FILM extends C_MEDIA{
     public void addRealisateur(String nom){
         if (nom.equals("")){
             C_ARTISTE mon_realisateur = new C_ARTISTE();
-            mon_realisateur.setNom("NULL");
+            mon_realisateur.setNickname("NULL");
             mon_realisateur.setId(0);
             this.mes_realisateurs.add(mon_realisateur);
         }
         else{
         C_ARTISTE mon_realisateur = new C_ARTISTE();
-        mon_realisateur.setNom(nom);
-        mon_realisateur.recupId(nom);
+        mon_realisateur.setNickname(nom);
+        mon_realisateur.recupId();
         this.mes_realisateurs.add(mon_realisateur);}
     }
 
     public void addScenariste(String nom){
         if (nom.equals("")){
             C_ARTISTE mon_scenariste = new C_ARTISTE();
-            mon_scenariste.setNom("NULL");
+            mon_scenariste.setNickname("NULL");
             mon_scenariste.setId(0);
             this.mes_scenaristes.add(mon_scenariste);
         }
         else{
         C_ARTISTE mon_scenariste = new C_ARTISTE();
-        mon_scenariste.setNom(nom);
-        mon_scenariste.recupId(nom);
+        mon_scenariste.setNickname(nom);
+        mon_scenariste.recupId();
         this.mes_scenaristes.add(mon_scenariste);}
     }
 
@@ -180,8 +180,8 @@ public class C_FILM extends C_MEDIA{
 
 
         for (int i = 0 ; i < mes_acteurs.size() ; i++){
-            if (!mes_acteurs.get(i).getNom().equals("")){
-                mes_acteurs.get(i).recupId(mes_acteurs.get(i).getNom());
+            if (!mes_acteurs.get(i).getNickname().equals("")){
+                mes_acteurs.get(i).recupId();
                 if(!verifNullInt(mes_acteurs.get(i).getId()).equals("NULL")){
                 String requete_creation_acteur = "INSERT INTO take_part_in (media_id, work_id, human_id) VALUES ("+this.id+","+acteur.getId()+","+verifNullInt(mes_acteurs.get(i).getId())+")";
                 System.out.println(requete_creation_acteur);

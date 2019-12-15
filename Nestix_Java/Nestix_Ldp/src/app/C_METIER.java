@@ -28,7 +28,12 @@ public class C_METIER{
     }
 
     public void recupId(){
-        String ma_requete_id_metier = "SELECT work_id FROM work WHERE work_name = \""+this.nom+"\"";
-        this.id = Requete.requeteUniqueTexteInt(ma_requete_id_metier);
-    }
+        String ma_requete_id_metier = "";
+        if (this.nom.equals("NULL")){
+            this.id = 0;
+        }
+        else{
+            ma_requete_id_metier = "SELECT work_id FROM work WHERE work_name = \""+this.nom+"\"";
+            this.id = Requete.requeteUniqueTexteInt(ma_requete_id_metier);}
+        }
 }

@@ -12,14 +12,6 @@ public class C_CHANSON extends C_MEDIA{
     C_AWARD mon_award = new C_AWARD();
     C_PRODC mon_label = new C_PRODC();
     C_GROUPE mon_groupe = new C_GROUPE();
-/*
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }*/
 
     public int getAnneeAward() {
         return annee_award;
@@ -104,14 +96,14 @@ public class C_CHANSON extends C_MEDIA{
     public void addInterprete(String nom){
     if (nom.equals("")){
         C_ARTISTE mon_interprete = new C_ARTISTE();
-        mon_interprete.setNom("NULL");
+        mon_interprete.setNickname("NULL");
         mon_interprete.setId(0);
         this.mes_interpretes.add(mon_interprete);
     }
     else{
         C_ARTISTE mon_interprete = new C_ARTISTE();
-        mon_interprete.setNom(nom);
-        mon_interprete.recupId(nom);
+        mon_interprete.setNickname(nom);
+        mon_interprete.recupId();
         this.mes_interpretes.add(mon_interprete);}
     }
     
@@ -161,8 +153,8 @@ public class C_CHANSON extends C_MEDIA{
         String requete_creation_interprete = "";
 
         for (int i = 0 ; i < mes_interpretes.size() ; i++){
-            if (!mes_interpretes.get(i).getNom().equals("")){
-                mes_interpretes.get(i).recupId(mes_interpretes.get(i).getNom());
+            if (!mes_interpretes.get(i).getNickname().equals("")){
+                mes_interpretes.get(i).recupId();
                 if(!verifNullInt(mes_interpretes.get(i).getId()).equals("NULL")){
                     requete_creation_interprete = "INSERT INTO take_part_in (media_id, work_id, human_id) VALUES ("+this.id+","+interprete.getId()+","+verifNullInt(mes_interpretes.get(i).getId())+")";
                 System.out.println(requete_creation_interprete);

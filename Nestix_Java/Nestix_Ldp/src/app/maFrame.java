@@ -8,6 +8,7 @@ package app;
 
 import java.util.HashMap;
 
+import javax.swing.JLayeredPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -105,6 +106,8 @@ public class maFrame extends javax.swing.JFrame {
         tf_informations_test = new javax.swing.JTextField();
         b_rechercher_test = new javax.swing.JButton();
         cb_recherche_test = new javax.swing.JComboBox<>();
+        label_informations_19 = new javax.swing.JLabel();
+        cb_sexe_creation = new javax.swing.JComboBox<>();
 
 
 
@@ -212,6 +215,10 @@ public class maFrame extends javax.swing.JFrame {
         b_reinitialise_livre = new javax.swing.JButton();
         b_ajout_critere_livre = new javax.swing.JButton();
         pannel_resultats_livre = new javax.swing.JLayeredPane();
+        tf_livre_selectionne = new javax.swing.JTextField();
+        b_suppr_livre = new javax.swing.JButton();
+        b_modifier_livre = new javax.swing.JButton();
+        b_bloquer_livre = new javax.swing.JButton();
         label_resultats_film1 = new javax.swing.JLabel();
         sp_tableau_resultats_livre = new javax.swing.JScrollPane();
         tableau_resultats_livre = new javax.swing.JTable();
@@ -284,6 +291,11 @@ public class maFrame extends javax.swing.JFrame {
         label_resultats_film2 = new javax.swing.JLabel();
         sp_tableau_resultats_musique = new javax.swing.JScrollPane();
         tableau_resultats_musique = new javax.swing.JTable();
+        b_modifier_musique = new javax.swing.JButton();
+        tf_musique_selectionne = new javax.swing.JTextField();
+        b_bloquer_musique = new javax.swing.JButton();
+        b_suppr_musique = new javax.swing.JButton();
+
         panel_musique_modif = new javax.swing.JPanel();
         label_titre_modif_musique = new javax.swing.JLabel();
         layered_modif_musique = new javax.swing.JLayeredPane();
@@ -321,6 +333,11 @@ public class maFrame extends javax.swing.JFrame {
         scrollpanel_modif_synop_musique = new javax.swing.JScrollPane();
         textarea_modif_synop_musique = new javax.swing.JTextArea();
         panel_artistes = new javax.swing.JPanel();
+        tf_artiste_selectionne = new javax.swing.JTextField();
+        b_modifier_artiste = new javax.swing.JButton();
+        b_bloquer_artiste = new javax.swing.JButton();
+        b_suppr_artiste = new javax.swing.JButton();
+        
         pannel_criteres_musique1 = new javax.swing.JLayeredPane();
         tf_critere_artiste_1 = new javax.swing.JTextField();
         tf_critere_artiste_2 = new javax.swing.JTextField();
@@ -507,6 +524,8 @@ public class maFrame extends javax.swing.JFrame {
         layered_creation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         layered_creation.setPreferredSize(new java.awt.Dimension(940, 600));
 
+
+
         label_informations.setText("INFORMATIONS");
         label_informations_1.setText("Titre");
         label_informations_2.setText("Année");
@@ -682,6 +701,21 @@ public class maFrame extends javax.swing.JFrame {
         mon_formulaire_chanson.setTf_synop(textarea_synop);
         mon_formulaire_chanson.setList_interprete(list_acteurs);
 
+        mon_formulaire_artiste.setCb_sexe(cb_sexe_creation);
+        mon_formulaire_artiste.setTf_nom(tf_informations_1);
+        mon_formulaire_artiste.setTf_prenom(tf_informations_2);
+        mon_formulaire_artiste.setTf_dob(tf_informations_3);
+        mon_formulaire_artiste.setTf_dod(tf_informations_4);
+        mon_formulaire_artiste.setTf_pays(tf_informations_5);
+        mon_formulaire_artiste.setTf_nickname(tf_informations_6);
+        mon_formulaire_artiste.setTf_groupe(tf_informations_7);
+        mon_formulaire_artiste.setList_metiers(list_acteurs);
+        mon_formulaire_artiste.setTf_award(tf_informations_16);
+        mon_formulaire_artiste.setTf_ceremonie(tf_informations_15);
+        mon_formulaire_artiste.setTf_annee_award(tf_informations_18);
+        
+
+
 
 
         list_acteurs.setModel(new javax.swing.AbstractListModel<String>() {
@@ -698,7 +732,9 @@ public class maFrame extends javax.swing.JFrame {
             }
         });
 
+        label_informations_19.setText("Sexe");
 
+        cb_sexe_creation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homme", "Femme", "Non Binaire" }));
 
         layered_creation.setLayer(label_informations, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layered_creation.setLayer(label_informations_1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -754,6 +790,9 @@ public class maFrame extends javax.swing.JFrame {
         layered_creation.setLayer(b_reinitialiser_creation, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layered_creation.setLayer(sp_list_acteurs, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layered_creation.setLayer(b_suppr_list, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layered_creation.setLayer(label_informations_19, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layered_creation.setLayer(cb_sexe_creation, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout layered_creationLayout = new javax.swing.GroupLayout(layered_creation);
         layered_creation.setLayout(layered_creationLayout);
         layered_creationLayout.setHorizontalGroup(
@@ -766,15 +805,17 @@ public class maFrame extends javax.swing.JFrame {
                     .addGroup(layered_creationLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(label_informations_2)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layered_creationLayout.createSequentialGroup()
-                                    .addComponent(label_informations_2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(tf_informations_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layered_creationLayout.createSequentialGroup()
-                                    .addComponent(label_informations_1)
+                                    .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(label_informations_1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(label_informations_19))
                                     .addGap(46, 46, 46)
-                                    .addComponent(tf_informations_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cb_sexe_creation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tf_informations_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(78, 78, 78)))
                             .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layered_creationLayout.createSequentialGroup()
                                     .addComponent(label_informations_8)
@@ -791,13 +832,15 @@ public class maFrame extends javax.swing.JFrame {
                                         .addComponent(tf_informations_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layered_creationLayout.createSequentialGroup()
-                                            .addComponent(label_informations_3)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(tf_informations_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layered_creationLayout.createSequentialGroup()
                                             .addComponent(label_informations_4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(tf_informations_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(tf_informations_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layered_creationLayout.createSequentialGroup()
+                                            .addComponent(label_informations_3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tf_informations_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tf_informations_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layered_creationLayout.createSequentialGroup()
                                         .addComponent(label_informations_6)
                                         .addGap(36, 36, 36)
@@ -891,7 +934,7 @@ public class maFrame extends javax.swing.JFrame {
                         .addComponent(b_fichier_image)
                         .addGap(89, 89, 89))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layered_creationLayout.createSequentialGroup()
-                .addGap(31, 31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layered_creationLayout.createSequentialGroup()
                         .addComponent(label_synop)
@@ -927,12 +970,14 @@ public class maFrame extends javax.swing.JFrame {
                     .addGroup(layered_creationLayout.createSequentialGroup()
                         .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layered_creationLayout.createSequentialGroup()
-                                .addComponent(label_informations_1)
-                                .addGap(18, 18, 18)
+                                .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(label_informations_1)
+                                    .addComponent(tf_informations_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_2)
                                     .addComponent(tf_informations_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_3)
                                     .addComponent(tf_informations_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -951,7 +996,7 @@ public class maFrame extends javax.swing.JFrame {
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_6)
                                     .addComponent(tf_informations_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_7)
                                     .addComponent(tf_informations_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -959,7 +1004,7 @@ public class maFrame extends javax.swing.JFrame {
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_8)
                                     .addComponent(tf_informations_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(label_informations_9)
                                     .addComponent(tf_informations_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -985,8 +1030,9 @@ public class maFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(layered_creationLayout.createSequentialGroup()
                                 .addGroup(layered_creationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(tf_informations_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_ajout_acteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tf_ajout_acteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(label_informations_19)
+                                    .addComponent(cb_sexe_creation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(b_ajout_acteur)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1997,22 +2043,62 @@ public class maFrame extends javax.swing.JFrame {
             }
         ));
         sp_tableau_resultats_livre.setViewportView(tableau_resultats_livre);
+        tf_livre_selectionne.setPreferredSize(new java.awt.Dimension(120, 26));
+
+        b_modifier_livre.setText("Modifier");
+        b_modifier_livre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_modifier_livreActionPerformed(evt);
+            }
+        });
+
+        b_bloquer_livre.setText("Bloquer");
+        b_bloquer_livre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_bloquer_livreActionPerformed(evt);
+            }
+        });
+
+        b_suppr_livre.setText("Supprimer");
+        b_suppr_livre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_suppr_livreActionPerformed(evt);
+            }
+        });
 
         pannel_resultats_livre.setLayer(label_resultats_film1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pannel_resultats_livre.setLayer(sp_tableau_resultats_livre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_livre.setLayer(tf_livre_selectionne, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_livre.setLayer(b_modifier_livre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_livre.setLayer(b_bloquer_livre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_livre.setLayer(b_suppr_livre, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout pannel_resultats_livreLayout = new javax.swing.GroupLayout(pannel_resultats_livre);
         pannel_resultats_livre.setLayout(pannel_resultats_livreLayout);
         pannel_resultats_livreLayout.setHorizontalGroup(
             pannel_resultats_livreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_livreLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label_resultats_film1)
-                .addGap(273, 273, 273))
             .addGroup(pannel_resultats_livreLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(sp_tableau_resultats_livre, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_livreLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pannel_resultats_livreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_livreLayout.createSequentialGroup()
+                        .addComponent(label_resultats_film1)
+                        .addGap(273, 273, 273))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_livreLayout.createSequentialGroup()
+                        .addGroup(pannel_resultats_livreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannel_resultats_livreLayout.createSequentialGroup()
+                                .addComponent(b_modifier_livre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(b_bloquer_livre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b_suppr_livre))
+                            .addGroup(pannel_resultats_livreLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(tf_livre_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(154, 154, 154))))
         );
         pannel_resultats_livreLayout.setVerticalGroup(
             pannel_resultats_livreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2020,8 +2106,15 @@ public class maFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label_resultats_film1)
                 .addGap(18, 18, 18)
-                .addComponent(sp_tableau_resultats_livre, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sp_tableau_resultats_livre, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tf_livre_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pannel_resultats_livreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_modifier_livre)
+                    .addComponent(b_bloquer_livre)
+                    .addComponent(b_suppr_livre))
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout panel_livreLayout = new javax.swing.GroupLayout(panel_livre);
@@ -2661,8 +2754,35 @@ public class maFrame extends javax.swing.JFrame {
         ));
         sp_tableau_resultats_musique.setViewportView(tableau_resultats_musique);
 
+        b_modifier_musique.setText("Modifier");
+        b_modifier_musique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_modifier_musiqueActionPerformed(evt);
+            }
+        });
+
+        tf_musique_selectionne.setPreferredSize(new java.awt.Dimension(120, 26));
+
+        b_bloquer_musique.setText("Bloquer");
+        b_bloquer_musique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_bloquer_musiqueActionPerformed(evt);
+            }
+        });
+
+        b_suppr_musique.setText("Supprimer");
+        b_suppr_musique.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_suppr_musiqueActionPerformed(evt);
+            }
+        });
+
         pannel_resultats_musique.setLayer(label_resultats_film2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pannel_resultats_musique.setLayer(sp_tableau_resultats_musique, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique.setLayer(b_modifier_musique, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique.setLayer(tf_musique_selectionne, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique.setLayer(b_bloquer_musique, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique.setLayer(b_suppr_musique, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout pannel_resultats_musiqueLayout = new javax.swing.GroupLayout(pannel_resultats_musique);
         pannel_resultats_musique.setLayout(pannel_resultats_musiqueLayout);
@@ -2673,8 +2793,22 @@ public class maFrame extends javax.swing.JFrame {
                 .addComponent(label_resultats_film2)
                 .addGap(273, 273, 273))
             .addGroup(pannel_resultats_musiqueLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(sp_tableau_resultats_musique, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pannel_resultats_musiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pannel_resultats_musiqueLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(sp_tableau_resultats_musique, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pannel_resultats_musiqueLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(pannel_resultats_musiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannel_resultats_musiqueLayout.createSequentialGroup()
+                                .addComponent(b_modifier_musique)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(b_bloquer_musique)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b_suppr_musique))
+                            .addGroup(pannel_resultats_musiqueLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(tf_musique_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         pannel_resultats_musiqueLayout.setVerticalGroup(
@@ -2683,8 +2817,15 @@ public class maFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label_resultats_film2)
                 .addGap(18, 18, 18)
-                .addComponent(sp_tableau_resultats_musique, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sp_tableau_resultats_musique, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_musique_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(pannel_resultats_musiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_modifier_musique)
+                    .addComponent(b_bloquer_musique)
+                    .addComponent(b_suppr_musique))
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout panel_musiqueLayout = new javax.swing.GroupLayout(panel_musique);
@@ -2705,7 +2846,7 @@ public class maFrame extends javax.swing.JFrame {
                 .addGroup(panel_musiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pannel_criteres_musique, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pannel_resultats_musique, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jtabbed_general.addTab("MUSIQUE", panel_musique);
@@ -3252,21 +3393,63 @@ public class maFrame extends javax.swing.JFrame {
         ));
         sp_tableau_resultats_artiste.setViewportView(tableau_resultats_artiste);
 
+        tf_artiste_selectionne.setPreferredSize(new java.awt.Dimension(120, 26));
+
+        b_modifier_artiste.setText("Modifier");
+        b_modifier_artiste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_modifier_artisteActionPerformed(evt);
+            }
+        });
+
+        b_bloquer_artiste.setText("Bloquer");
+        b_bloquer_artiste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_bloquer_artisteActionPerformed(evt);
+            }
+        });
+
+        b_suppr_artiste.setText("Supprimer");
+        b_suppr_artiste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_suppr_artisteActionPerformed(evt);
+            }
+        });
+
+
         pannel_resultats_musique1.setLayer(label_resultats_artiste, javax.swing.JLayeredPane.DEFAULT_LAYER);
         pannel_resultats_musique1.setLayer(sp_tableau_resultats_artiste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique1.setLayer(tf_artiste_selectionne, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique1.setLayer(b_modifier_artiste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique1.setLayer(b_bloquer_artiste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pannel_resultats_musique1.setLayer(b_suppr_artiste, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout pannel_resultats_musique1Layout = new javax.swing.GroupLayout(pannel_resultats_musique1);
         pannel_resultats_musique1.setLayout(pannel_resultats_musique1Layout);
         pannel_resultats_musique1Layout.setHorizontalGroup(
             pannel_resultats_musique1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_musique1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label_resultats_artiste)
-                .addGap(273, 273, 273))
             .addGroup(pannel_resultats_musique1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(sp_tableau_resultats_artiste, javax.swing.GroupLayout.PREFERRED_SIZE, 611, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_musique1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pannel_resultats_musique1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_musique1Layout.createSequentialGroup()
+                        .addComponent(label_resultats_artiste)
+                        .addGap(273, 273, 273))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pannel_resultats_musique1Layout.createSequentialGroup()
+                        .addGroup(pannel_resultats_musique1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pannel_resultats_musique1Layout.createSequentialGroup()
+                                .addComponent(b_modifier_artiste)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(b_bloquer_artiste)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(b_suppr_artiste))
+                            .addGroup(pannel_resultats_musique1Layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(tf_artiste_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(157, 157, 157))))
         );
         pannel_resultats_musique1Layout.setVerticalGroup(
             pannel_resultats_musique1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3274,8 +3457,15 @@ public class maFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label_resultats_artiste)
                 .addGap(18, 18, 18)
-                .addComponent(sp_tableau_resultats_artiste, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(sp_tableau_resultats_artiste, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(tf_artiste_selectionne, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(pannel_resultats_musique1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b_modifier_artiste)
+                    .addComponent(b_bloquer_artiste)
+                    .addComponent(b_suppr_artiste))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout panel_artistesLayout = new javax.swing.GroupLayout(panel_artistes);
@@ -3296,7 +3486,7 @@ public class maFrame extends javax.swing.JFrame {
                 .addGroup(panel_artistesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pannel_criteres_musique1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pannel_resultats_musique1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         jtabbed_general.addTab("ARTISTES", panel_artistes);
@@ -4447,6 +4637,11 @@ public class maFrame extends javax.swing.JFrame {
          
         choix_creation = choix_group.getSelection().getActionCommand();
         if (choix_creation == "Livre"){
+
+            label_informations_19.setText("Sexe");
+            label_informations_19.setVisible(false);
+            cb_sexe_creation.setVisible(false);
+
             label_informations_1.setText("ISBN");
             label_informations_1.setVisible(true);
             tf_informations_1.setVisible(true);
@@ -4516,6 +4711,11 @@ public class maFrame extends javax.swing.JFrame {
             textarea_synop.setEnabled(true);
         }
         else if (choix_creation == "Musique"){
+
+            label_informations_19.setText("Sexe");
+            label_informations_19.setVisible(false);
+            cb_sexe_creation.setVisible(false);
+
 
             label_informations_1.setText("Titre");
             label_informations_1.setVisible(true);
@@ -4587,37 +4787,41 @@ public class maFrame extends javax.swing.JFrame {
         }
 
         else if (choix_creation == "Artiste"){
-            label_informations_1.setText("Sexe");
+            label_informations_19.setText("Sexe");
+            label_informations_19.setVisible(true);
+            cb_sexe_creation.setVisible(true);
+
+            label_informations_1.setText("Nom");
             label_informations_1.setVisible(true);
             tf_informations_1.setVisible(true);
 
-            label_informations_2.setText("Nom");
+            label_informations_2.setText("Prénom");
             label_informations_2.setVisible(true);
             tf_informations_2.setVisible(true);
 
-            label_informations_3.setText("Prénom");
+            label_informations_3.setText("Née en");
             label_informations_3.setVisible(true);
             tf_informations_3.setVisible(true);
 
-            label_informations_4.setText("Née en");
+            label_informations_4.setText("Mort en");
             label_informations_4.setVisible(true);
             tf_informations_4.setVisible(true);
 
-            label_informations_5.setText("Mort en");
+            label_informations_5.setText("Pays");
             label_informations_5.setVisible(true);
             tf_informations_5.setVisible(true);
 
-            label_informations_6.setText("Pays");
+            label_informations_6.setText("Surnom");
             label_informations_6.setVisible(true);
             tf_informations_6.setVisible(true);
 
-            label_informations_7.setText("Surnom");
+            label_informations_7.setText("Groupe");
             label_informations_7.setVisible(true);
             tf_informations_7.setVisible(true);
 
-            label_informations_8.setText("Groupe");
-            label_informations_8.setEnabled(true);
-            tf_informations_8.setEnabled(true);
+            label_informations_8.setText("");
+            label_informations_8.setEnabled(false);
+            tf_informations_8.setEnabled(false);
 
             label_informations_9.setText("");
             label_informations_9.setEnabled(false);
@@ -4658,6 +4862,10 @@ public class maFrame extends javax.swing.JFrame {
         }
 
         else if (choix_creation == "Film"){
+            label_informations_19.setText("Sexe");
+            label_informations_19.setVisible(false);
+            cb_sexe_creation.setVisible(false);
+
             label_informations_1.setText("Visa");
             label_informations_1.setVisible(true);
             tf_informations_1.setVisible(true);
@@ -5080,7 +5288,7 @@ public class maFrame extends javax.swing.JFrame {
         if (choix_creation == "Film"){
         mon_formulaire_film.setType(choix_creation);
         recuperer_champs_film();
-        mon_formulaire_film.getFilm().creation(1);
+        mon_formulaire_film.getFilm().creation(2);
         mon_formulaire_film.getFilm().assoPersonnes();
         mon_formulaire_film.getFilm().assoGenre();
         mon_formulaire_film.getFilm().assoCeremony();
@@ -5089,11 +5297,11 @@ public class maFrame extends javax.swing.JFrame {
         if (choix_creation == "Livre"){
         mon_formulaire_film.setType(choix_creation);
         recuperer_champs_livre();
-        /*mon_formulaire_film.getFilm().creation(1);
+        mon_formulaire_film.getFilm().creation(2);
         mon_formulaire_film.getFilm().assoPersonnes();
         mon_formulaire_film.getFilm().assoGenre();
         mon_formulaire_film.getFilm().assoCeremony();
-        mon_formulaire_film.getFilm().assoTag()*/;}
+        mon_formulaire_film.getFilm().assoTag();}
 
     }                                                    
 
@@ -5105,15 +5313,28 @@ public class maFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }   
 
+    private void b_modifier_livreActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+    }                                                
+
+    private void b_bloquer_livreActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }                                               
+
+    private void b_suppr_livreActionPerformed(java.awt.event.ActionEvent evt) {                                              
+        // TODO add your handling code here:
+    }  
+
     private void b_suppr_listActionPerformed(java.awt.event.ActionEvent evt) {                                             
         for (int i = 0; i < mon_formulaire_film.getFilm().mes_acteurs.size() ; i++){
-            System.out.println(mon_formulaire_film.getFilm().mes_acteurs.get(i).getNom());
+            System.out.println(mon_formulaire_film.getFilm().mes_acteurs.get(i).getNickname());
         }
         int selectedIx = list_acteurs.getSelectedIndex();
+        System.out.println(selectedIx);
         mon_formulaire_film.getFilm().removeActeur(selectedIx);
         model.remove(selectedIx);
         for (int i = 0; i < mon_formulaire_film.getFilm().mes_acteurs.size() ; i++){
-            System.out.println(mon_formulaire_film.getFilm().mes_acteurs.get(i).getNom());
+            System.out.println(mon_formulaire_film.getFilm().mes_acteurs.get(i).getNickname());
         }
     } 
 
@@ -5153,6 +5374,10 @@ public class maFrame extends javax.swing.JFrame {
         mon_formulaire_chanson.getChanson().addTag(mon_formulaire_chanson.getTf_tag_3().getText()); 
     }
 
+    private void recuperer_champs_artiste(){
+        mon_formulaire_artiste.recupDonneesArtiste(); 
+    }
+
     private void b_valider_creationActionPerformed(java.awt.event.ActionEvent evt){  
         if (choix_creation == "Film"){
             System.out.println("Crea Film");
@@ -5190,6 +5415,19 @@ public class maFrame extends javax.swing.JFrame {
             mon_formulaire_chanson.getChanson().assoEditeur();
 
         }
+        else if (choix_creation == "Artiste"){
+            System.out.println("Crea Artiste");
+            choix_creation = "Artiste";
+            mon_formulaire_artiste.setType(choix_creation);
+            recuperer_champs_artiste();
+            if (mon_formulaire_artiste.getArtiste().verifNicknameVide() == false){
+
+            mon_formulaire_artiste.getArtiste().creation(1);
+            mon_formulaire_artiste.getArtiste().assoCeremony();
+            mon_formulaire_artiste.getArtiste().assoGroupe();
+            mon_formulaire_artiste.getArtiste().assoPays();}
+
+        }
 
     }                                                  
 
@@ -5215,10 +5453,10 @@ public class maFrame extends javax.swing.JFrame {
             mon_formulaire_film.getFilm().addActeur(mon_artiste);}
         else if (choix_creation == "Livre"){
             mon_formulaire_livre.getLivre().addEcrivain(mon_artiste);
-            System.out.println(mon_formulaire_livre.getLivre().mes_ecrivains.get(0).getNom());}
+            System.out.println(mon_formulaire_livre.getLivre().mes_ecrivains.get(0).getLast_name());}
         else if (choix_creation == "Musique"){
             mon_formulaire_chanson.getChanson().addInterprete(mon_artiste);
-            System.out.println(mon_formulaire_chanson.getChanson().mes_interpretes.get(0).getNom());}
+            System.out.println(mon_formulaire_chanson.getChanson().mes_interpretes.get(0).getLast_name());}
 
         model.addElement(mon_artiste); 
         list_acteurs.setModel(model);
@@ -5247,6 +5485,35 @@ public class maFrame extends javax.swing.JFrame {
         media_a_supprimer.suppression(mon_id);
           
     }   
+
+
+    private void b_modifier_musiqueActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+    }                                                  
+
+    private void b_bloquer_musiqueActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+    }                                                 
+
+    private void b_suppr_musiqueActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }  
+
+    private void b_modifier_artisteActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+        // TODO add your handling code here:
+    }                                                  
+
+    private void b_bloquer_artisteActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+    }                                                 
+
+    private void b_suppr_artisteActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        // TODO add your handling code here:
+    }   
+    
+    public static javax.swing.JLayeredPane getL_creation(){
+        return layered_creation;
+    }
  
     /**
      * @param args the command line arguments
@@ -5294,6 +5561,7 @@ public class maFrame extends javax.swing.JFrame {
     C_FORMULAIRE_FILM mon_formulaire_film = new C_FORMULAIRE_FILM();
     C_FORMULAIRE_LIVRE mon_formulaire_livre = new C_FORMULAIRE_LIVRE();
     C_FORMULAIRE_CHANSON mon_formulaire_chanson= new C_FORMULAIRE_CHANSON();
+    C_FORMULAIRE_ARTISTE mon_formulaire_artiste= new C_FORMULAIRE_ARTISTE();
     public String mon_film_type;
     public String choix_creation;
     public String mon_dernier_media_id; //
@@ -5337,6 +5605,16 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JButton b_modifier_film;
     public javax.swing.JButton b_bloquer_film;
     public javax.swing.JButton b_suppr_film;
+
+    public javax.swing.JButton b_suppr_musique;
+    public javax.swing.JButton b_modifier_musique;
+    public javax.swing.JButton b_bloquer_musique;
+    public javax.swing.JTextField tf_musique_selectionne;
+
+    public javax.swing.JButton b_suppr_artiste;
+    public javax.swing.JButton b_modifier_artiste;
+    public javax.swing.JButton b_bloquer_artiste;
+    public javax.swing.JTextField tf_artiste_selectionne;
 
     public javax.swing.JButton b_ajout_acteur;
     public javax.swing.JButton b_ajout_critere_artiste;
@@ -5416,6 +5694,11 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JButton b_valider_modif_livre;
     public javax.swing.JButton b_valider_modif_musique;
     public javax.swing.JButton b_voir_album_modif_musique;
+    public javax.swing.JButton b_modifier_livre;
+    public javax.swing.JButton b_bloquer_livre;
+    public javax.swing.JButton b_suppr_livre;
+
+
     public javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.ButtonGroup buttonGroup2;
     public javax.swing.JComboBox<String> cb_critere_artiste_1;
@@ -5440,6 +5723,7 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> cb_critere_users_3;
 
     public javax.swing.JComboBox<String> cb_recherche_test;
+    public javax.swing.JComboBox<String> cb_sexe_creation;
 
     public javax.swing.JRadioButton choix_artiste;
     public javax.swing.JRadioButton choix_brouillon_1;
@@ -5489,6 +5773,7 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JLabel label_informations_16;
     public javax.swing.JLabel label_informations_17;
     public javax.swing.JLabel label_informations_18;
+    public javax.swing.JLabel label_informations_19;
 
     public javax.swing.JLabel label_informations_test;
 
@@ -5557,7 +5842,7 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JLabel label_titre_modif_musique;
     public javax.swing.JLabel label_users_comm_titre;
     public javax.swing.JLayeredPane layered_choix_media;
-    public javax.swing.JLayeredPane layered_creation;
+    public static javax.swing.JLayeredPane layered_creation;
     public javax.swing.JLayeredPane layered_modif_artiste;
     public javax.swing.JLayeredPane layered_modif_film;
     public javax.swing.JLayeredPane layered_modif_livre;
@@ -5668,6 +5953,9 @@ public class maFrame extends javax.swing.JFrame {
     public javax.swing.JTextField tf_informations_test;
 
     public javax.swing.JTextField tf_film_selectionne;
+
+    public javax.swing.JTextField tf_livre_selectionne;
+
     public javax.swing.JTextField tf_modif_acteur_1;
     public javax.swing.JTextField tf_modif_acteur_2;
     public javax.swing.JTextField tf_modif_acteur_3;
